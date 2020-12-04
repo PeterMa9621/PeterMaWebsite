@@ -24,7 +24,6 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-      { src: '@/plugins/vuelayers.js', ssr: false },
       { src: '@/plugins/vueMarkdown.js', ssr: false },
       { src: '@/plugins/fontawesome.js', ssr: false },
       { src: '@/plugins/simpleAlert.js', ssr: false },
@@ -45,7 +44,6 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '~/modules/vueLayers',
     'cookie-universal-nuxt',
   ],
 
