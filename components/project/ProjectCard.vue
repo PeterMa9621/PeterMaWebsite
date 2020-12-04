@@ -44,7 +44,7 @@
     }
 
     .project-card:hover {
-        opacity: 90%;
+        opacity: 0.9;
         background-color: #e7e0d0;
     }
 

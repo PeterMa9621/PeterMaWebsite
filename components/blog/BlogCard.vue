@@ -58,7 +58,7 @@
     }
 
     .blog-card:hover {
-        opacity: 80%;
+        opacity: 0.8;
         background-color: #e7e0d0;
     }
 </style>
