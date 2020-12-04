@@ -1,9 +1,6 @@
 <template>
     <div>
         <b-navbar toggleable="lg" type="dark" variant="dark" class="fixed-top">
-            <b-navbar-brand href="#">
-                <img src="../../assets/marker.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            </b-navbar-brand>
             <b-navbar-brand href="#">PeterMa</b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
