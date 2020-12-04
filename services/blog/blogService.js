@@ -5,7 +5,6 @@ import URLUtility from "../../common/utility/URLUtility";
 export default class BlogService {
     static getBlogs() {
         return new Promise((resolve, reject) => {
-            console.log(Setting.blogApiUrl);
             axios.get(Setting.blogApiUrl).then(response => {
                 resolve(response.data);
             }).catch(reason => {
