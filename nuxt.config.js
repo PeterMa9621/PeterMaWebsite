@@ -1,7 +1,7 @@
 export default {
     server: {
-        port: 6000, // default: 3000
-        host: (process.env.NODE_ENV === 'production')?'peterma.website':'0.0.0.0' // default: localhost
+        port: 3000, // default: 3000
+        host: (process.env.NODE_ENV === 'production')?'0.0.0.0':'0.0.0.0' // default: localhost
     },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
