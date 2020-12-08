@@ -39,7 +39,7 @@
                   if(isAddButton) {
                       this.$refs['file'].click();
                   } else {
-                      this.$emit('onInsertImageToContent', `<img src='${this.images[indexOfImage]['url']}' style='width: 100%' />`);
+                      this.$emit('onInsertImageToContent', `<img src='${this.images[indexOfImage]['url']}' style='max-width: 100%' />`);
                   }
             },
             onAddImage(event) {
