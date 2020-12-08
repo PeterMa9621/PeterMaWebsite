@@ -1,13 +1,17 @@
 import fs from 'fs';
 
 export default {
-    server: {
-        https: (process.env.NODE_ENV === 'production') ? {
+    server: (process.env.NODE_ENV === 'production')
+        ? {
+        https:  {
             key: fs.readFileSync('/etc/letsencrypt/live/peterma.website/privkey.pem'),
             cert: fs.readFileSync('/etc/letsencrypt/live/peterma.website/fullchain.pem')
-        } : {},
-        port: 3000, // default: 3000
-        host: (process.env.NODE_ENV === 'production')?'0.0.0.0':'0.0.0.0' // default: localhost
+        },
+        port: 3000,
+        host: '0.0.0.0'
+    } : {
+        port: 3000,
+        host: 'localhost'
     },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {

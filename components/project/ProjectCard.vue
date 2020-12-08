@@ -3,15 +3,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-4 pl-0 pr-0" style="height: 160px">
-                    <img :src="project.coverImageUrl" alt="" class="project-cover-image">
+                    <img :src="project.coverImage['url'] || blankImage" alt="" class="project-cover-image">
                 </div>
                 <div class="col-8">
                     <div class="card-body pt-0 pb-0">
                         <h3 class="card-title">
                             {{ project.title }}
                         </h3>
-                        <div>
-                            {{ project.content }}
+                        <div class="d-flex">
+                            {{ project.summary }}
                         </div>
                     </div>
                 </div>
@@ -21,9 +21,16 @@
 </template>
 
 <script>
+    import blankImage from '~/assets/blank_image.png';
+
     export default {
         name: "ProjectCard",
         props: ['project'],
+        data() {
+            return {
+                blankImage: blankImage
+            }
+        },
         methods: {
             openDetail() {
                 this.$router.push('project/' + this.project._id);

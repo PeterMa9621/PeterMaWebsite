@@ -23,4 +23,12 @@ export default class FileUtility {
             });
         });
     }
+
+    static deleteFile(path) {
+        try {
+            fs.unlinkSync(path);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

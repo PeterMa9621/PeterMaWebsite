@@ -1,8 +1,9 @@
 <template>
-    <div class="container-fluid bg-dark text-white">
+    <div class="container-fluid bg-dark text-white h-auto">
         <div class="row">
             <div class="col-3 text-center">
-                <b-img v-if="project.coverImageUrl" class="mt-3" thumbnail fluid :src="project.coverImageUrl" alt="Image 1"></b-img>
+                <b-img v-if="project.coverImage && project.coverImage['url']" class="mt-3"
+                       thumbnail fluid :src="project.coverImage['url']" alt="Image 1"></b-img>
                 <!--<img class="project-cover-image mt-3" :src="project.coverImageUrl" alt="">-->
             </div>
             <div class="col-9 mt-3">
