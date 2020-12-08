@@ -43,7 +43,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-4">
-                                <img class="project-cover-image" :src="project.coverImage['url']" alt="">
+                                <img class="project-cover-image" :src="project.coverImage?project.coverImage['url']:blankImage" alt="">
                             </div>
                             <div class="col-8">
                                 <h3>{{ project.title }}</h3>
@@ -65,11 +65,17 @@
     import FileUtility from "../../common/utility/FileUtility";
     import {v4 as uuidv4} from 'uuid';
     import URLUtility from "../../common/utility/URLUtility";
+    import blankImage from '~/assets/blank_image.png';
 
     export default {
         name: "ProjectEditor",
         components: {ThumbnailList, ImageThumbnail, CoverImageThumbnail, VueMarkdown},
         props: ['submitButtonName', 'project'],
+        data() {
+            return {
+                blankImage: blankImage
+            }
+        },
         methods: {
             onAddCoverImage(event) {
                 let files = event.target.files || event.dataTransfer.files;
