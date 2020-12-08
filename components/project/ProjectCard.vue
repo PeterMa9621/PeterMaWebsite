@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-4 pl-0 pr-0" style="height: 160px">
-                    <img :src="project.coverImage['url'] || blankImage" alt="" class="project-cover-image">
+                    <img :src="project.coverImage?project.coverImage['url']:blankImage" alt="" class="project-cover-image">
                 </div>
                 <div class="col-8">
                     <div class="card-body pt-0 pb-0">
