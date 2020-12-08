@@ -82,7 +82,7 @@ function deleteImages(project) {
         let projectId = project._id;
         Project.findById(projectId).then(existedProject => {
             let coverImage = existedProject.coverImage;
-            if(project.coverImage.url !== coverImage.url) {
+            if(coverImage!==undefined && project.coverImage.url !== coverImage.url) {
                 let fileName = coverImage.url.split('/').pop();
                 FileUtility.deleteFile('static/upload/' + fileName);
             }

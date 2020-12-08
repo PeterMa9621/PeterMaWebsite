@@ -80,6 +80,8 @@
             onAddCoverImage(event) {
                 let files = event.target.files || event.dataTransfer.files;
                 FileUtility.getBase64(files[0]).then(result => {
+                    if(!('coverImage' in this.project))
+                        this.$set(this.project, 'coverImage', {});
                     this.$set(this.project.coverImage, 'src', result);
                     this.$set(this.project.coverImage, 'url', URLUtility.createObjectURL(files[0]));
                     this.$set(this.project.coverImage, 'id', uuidv4());
