@@ -5,7 +5,7 @@
                 <div class="card card-body editor">
                     <div class="row">
                         <div class="col-3 d-flex justify-content-center">
-                            <CoverImageThumbnail :src="project.coverImage['url']"
+                            <CoverImageThumbnail :src="project.coverImage?project.coverImage['url']:undefined"
                                                  @onAddCoverImage="onAddCoverImage" @onDeleteCoverImage="onDeleteCoverImage" />
                         </div>
                         <div class="col-9">
