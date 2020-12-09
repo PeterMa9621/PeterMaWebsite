@@ -9,7 +9,8 @@ const projectSchema = new mongoose.Schema({
     updatedDate: Date,
     isRemoved: Boolean,
     summary: String,
-    contentImages: Array
+    contentImages: Array,
+    tags: Array
 });
 
 module.exports = mongoose.model('Project', projectSchema);

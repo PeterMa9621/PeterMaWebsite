@@ -13,11 +13,24 @@
                             <input id="title" class="form-control" v-model="project.title">
                         </div>
                     </div>
+                    <div>
+                        <label>Tag</label>
+                        <b-input-group>
+                            <b-form-input v-model="tag" @keyup.enter="onAddTag"></b-form-input>
+                            <b-input-group-append>
+                                <b-button variant="outline-secondary" @click="onAddTag">Add</b-button>
+                            </b-input-group-append>
+                        </b-input-group>
+                        <b-badge v-for="(tag, index) in project.tags" :key="index" pill variant="primary" style="cursor: pointer"
+                                 @click="() => removeTag(index)">
+                            {{tag + ' X'}}
+                        </b-badge>
+                    </div>
+                    <div>
+                        <label class="text-left" for="summary">Summary</label>
+                        <textarea id="summary" rows="3" class="form-control editor-content" v-model="project.summary"></textarea>
+                    </div>
 
-                    <label class="text-left">
-                        Summary
-                        <textarea rows="3" class="form-control editor-content" v-model="project.summary"></textarea>
-                    </label>
                     <div class="d-flex justify-content-between">
                         <label class="text-left" for="content">
                             Content
@@ -42,13 +55,13 @@
                                            @onInsertImageToContent="onInsertImageToContent"/>
                         </div>
                     </div>
-                    <button class="btn btn-outline-primary" @click="submit">
-                        {{submitButtonName}}
-                    </button>
                 </div>
+                <button class="btn btn-primary form-control mt-2" @click="submit">
+                    {{submitButtonName}}
+                </button>
             </div>
             <div class="col-6">
-                <div class="card card-body editor text-left">
+                <div class="card card-body viewer text-left">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-4">
@@ -83,7 +96,8 @@
         props: ['submitButtonName', 'project'],
         data() {
             return {
-                blankImage: blankImage
+                blankImage: blankImage,
+                tag: ''
             }
         },
         methods: {
@@ -110,8 +124,18 @@
             onInsertImageToContent(text) {
                 this.insertAtCursor(this.$refs['content'], text);
             },
+            onAddTag() {
+                if(!('tags' in this.project)) {
+                    this.project['tags'] = [];
+                }
+                this.project['tags'].push(this.tag);
+                this.tag = '';
+            },
+            removeTag(index) {
+                this.project['tags'].splice(index, 1);
+            },
             onClickAddCard() {
-                this.insertAtCursor(this.$refs['content'], `[card-group]\n  [card src="" title="" content=""]\n[/card-group]`)
+                this.insertAtCursor(this.$refs['content'], `[card-deck]\n  [card src="" title="" content=""]\n[/card-deck]`)
             },
             submit() {
                 let index = this.project.contentImages.length-1;
@@ -136,6 +160,15 @@
 
 <style scoped>
     div.editor {
+        height: 80vh;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(218, 218, 218, 0.3);
+        box-shadow: 0 30px 60px 0 rgba(179, 179, 179, 0.21);
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        overflow: auto;
+    }
+
+    div.viewer {
         height: 85vh;
         -webkit-box-shadow: 0 30px 60px 0 rgba(218, 218, 218, 0.3);
         box-shadow: 0 30px 60px 0 rgba(179, 179, 179, 0.21);

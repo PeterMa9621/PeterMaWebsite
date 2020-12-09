@@ -1,6 +1,5 @@
 import authUtility from "../../common/utility/authUtility";
 import FileUtility from "../../../common/utility/FileUtility";
-import {v4 as uuidv4} from 'uuid';
 const Project = require('../../model/project/projectModel');
 
 exports.projectGetAllController = (req, res) => {

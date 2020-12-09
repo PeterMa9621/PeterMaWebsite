@@ -10,8 +10,13 @@
                         <h3 class="card-title">
                             {{ project.title }}
                         </h3>
-                        <div class="d-flex">
-                            {{ project.summary }}
+                        <div class="d-flex" v-html="project.summary"></div>
+                        <div class="form-inline">
+                            <h4 v-for="(tag, index) in project.tags" :key="index" class="mr-1">
+                                <b-badge variant="primary">
+                                    {{tag}}
+                                </b-badge>
+                            </h4>
                         </div>
                     </div>
                 </div>

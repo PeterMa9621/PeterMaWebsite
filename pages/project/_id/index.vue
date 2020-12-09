@@ -22,16 +22,27 @@
                         </b-dropdown-item>
                     </b-dropdown>
                 </div>
-                <div class="">
+                <div>
                     <font-awesome-icon :icon="['far', 'user']" />
                     {{ author.username }}
                 </div>
-                <div class="form-group">
+                <div>
                     <font-awesome-icon :icon="['far', 'clock']" />
                     {{ project.createdDate }}
                 </div>
+                <div class="form-inline">
+                    <h4 v-for="(tag, index) in project.tags" :key="index" class="mr-2">
+                        <b-badge variant="primary">
+                            {{tag}}
+                        </b-badge>
+                    </h4>
+                </div>
                 <hr class="line">
                 <div class="">
+                    <div class="mb-3">
+                        <h3>Summary:</h3>
+                        <div v-html="project.summary"></div>
+                    </div>
                     <MyMarkDown v-if="finishInit" :source="project.content"></MyMarkDown>
                 </div>
             </div>
@@ -92,5 +103,12 @@
         width: 100%;
         object-fit: cover;
         border-radius: 20px;
+    }
+
+    .line {
+        background-color: #808080;
+        border: 0 #808080;
+        height: 2px;
+        border-radius: 1px;
     }
 </style>
