@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid h-auto">
         <div class="row mt-3 pl-3 pr-3">
             <div class="col-6">
                 <div class="card card-body editor">
@@ -27,7 +27,9 @@
                         </div>
                     </div>
 
-                    <textarea id="content" ref="content" rows="14" class="form-control editor-content" v-model="project.content"></textarea>
+                    <div>
+                        <textarea id="content" ref="content" rows="16" class="form-control editor-content" v-model="project.content"></textarea>
+                    </div>
 
                     <div class="form-group">
                         <label class="text-left">
@@ -134,7 +136,7 @@
 
 <style scoped>
     div.editor {
-        height: 80vh;
+        height: 85vh;
         -webkit-box-shadow: 0 30px 60px 0 rgba(218, 218, 218, 0.3);
         box-shadow: 0 30px 60px 0 rgba(179, 179, 179, 0.21);
         -webkit-border-radius: 10px 10px 10px 10px;
