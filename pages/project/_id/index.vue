@@ -32,7 +32,7 @@
                 </div>
                 <hr class="line">
                 <div class="">
-                    <VueMarkdown v-if="finishInit" :source="project.content"></VueMarkdown>
+                    <MyMarkDown v-if="finishInit" :source="project.content"></MyMarkDown>
                 </div>
             </div>
         </div>
@@ -40,14 +40,14 @@
 </template>
 
 <script>
-    import VueMarkdown from "vue-markdown";
     import ProjectService from "../../../services/project/projectService";
     import moment from "moment";
     import AccountService from "../../../services/account/accountService";
+    import MyMarkDown from "../../../components/MyMarkDown";
 
     export default {
         name: "index",
-        components: {VueMarkdown},
+        components: {MyMarkDown},
         data() {
             return {
                 project: {},

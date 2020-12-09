@@ -18,10 +18,17 @@
                         Summary
                         <textarea rows="3" class="form-control editor-content" v-model="project.summary"></textarea>
                     </label>
-                    <label class="text-left">
-                        Content
-                        <textarea ref="content" rows="14" class="form-control editor-content" v-model="project.content"></textarea>
-                    </label>
+                    <div class="d-flex justify-content-between">
+                        <label class="text-left" for="content">
+                            Content
+                        </label>
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary" @click="onClickAddCard">Add Card</button>
+                        </div>
+                    </div>
+
+                    <textarea id="content" ref="content" rows="14" class="form-control editor-content" v-model="project.content"></textarea>
+
                     <div class="form-group">
                         <label class="text-left">
                             Upload Images
@@ -47,7 +54,7 @@
                             </div>
                             <div class="col-8">
                                 <h3>{{ project.title }}</h3>
-                                <VueMarkdown :source="project.content"></VueMarkdown>
+                                <MyMarkDown :source="project.content"></MyMarkDown>
                             </div>
                         </div>
                     </div>
@@ -66,10 +73,11 @@
     import {v4 as uuidv4} from 'uuid';
     import URLUtility from "../../common/utility/URLUtility";
     import blankImage from '~/assets/blank_image.png';
+    import MyMarkDown from "../MyMarkDown";
 
     export default {
         name: "ProjectEditor",
-        components: {ThumbnailList, ImageThumbnail, CoverImageThumbnail, VueMarkdown},
+        components: {MyMarkDown, ThumbnailList, ImageThumbnail, CoverImageThumbnail, VueMarkdown},
         props: ['submitButtonName', 'project'],
         data() {
             return {
@@ -99,6 +107,9 @@
             },
             onInsertImageToContent(text) {
                 this.insertAtCursor(this.$refs['content'], text);
+            },
+            onClickAddCard() {
+                this.insertAtCursor(this.$refs['content'], `[card-group]\n  [card src="" title="" content=""]\n[/card-group]`)
             },
             submit() {
                 let index = this.project.contentImages.length-1;
