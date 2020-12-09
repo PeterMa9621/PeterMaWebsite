@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-3 text-center">
                 <b-img v-if="project.coverImage && project.coverImage['url']" class="mt-3"
-                       :src="project.coverImage['url']" alt="Image 1"></b-img>
+                       fluid :src="project.coverImage['url']" alt="Image 1"></b-img>
                 <!--<img class="project-cover-image mt-3" :src="project.coverImageUrl" alt="">-->
             </div>
             <div class="col-9 mt-3">
@@ -99,12 +99,6 @@
 </script>
 
 <style scoped>
-    .project-cover-image {
-        width: 100%;
-        object-fit: cover;
-        border-radius: 20px;
-    }
-
     .line {
         background-color: #808080;
         border: 0 #808080;
