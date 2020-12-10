@@ -17,13 +17,20 @@
         data() {
             return {
                 translatedSource: '',
-                images: []
+                images: [],
+                translator: null
+            }
+        },
+        watch: {
+            source: function (newSource) {
+                this.translatedSource = this.translator.translate(newSource);
+                this.images = this.translator.getSavedParams('slider-item');
             }
         },
         mounted() {
-            let translator = new ContentTranslator(this.source);
-            this.translatedSource = translator.translate();
-            this.images = translator.getSavedParams('slider-item');
+            this.translator = new ContentTranslator();
+            this.translatedSource = this.translator.translate(this.source);
+            this.images = this.translator.getSavedParams('slider-item');
         }
     }
 </script>

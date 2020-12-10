@@ -39,21 +39,18 @@ let templates = {
 };
 
 export default class ContentTranslator {
-    constructor(content) {
-        this.content = content;
+    constructor() {
         this.savedParams = {};
     }
 
-    translate() {
-        let translatedContent = this.content;
+    translate(content) {
+        let translatedContent = content;
         for(let keyword in templates) {
             let html = templates[keyword]['html'];
             let params = templates[keyword]['params'];
             let shouldSaveParams = templates[keyword]['saveParams'];
             if(shouldSaveParams) {
-                if(!(keyword in this.savedParams)) {
-                    this.savedParams[keyword] = [];
-                }
+                this.savedParams[keyword] = [];
             }
 
             if(params && params.length > 0) {
