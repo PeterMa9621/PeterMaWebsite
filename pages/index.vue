@@ -125,6 +125,9 @@
 import PageBlock from "../components/PageBlock";
 export default {
     name: 'HomePage',
+    head: {
+        title: 'Peter Ma Website'
+    },
     components: {PageBlock},
     data() {
         return {

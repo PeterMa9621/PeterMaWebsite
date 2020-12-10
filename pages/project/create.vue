@@ -19,6 +19,9 @@
 
     export default {
         name: "create",
+        head: {
+            title: 'Create a project - Peter Ma Website'
+        },
         components: {ProjectEditor, VueMarkdown},
         data() {
             return {

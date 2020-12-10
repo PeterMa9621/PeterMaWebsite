@@ -26,6 +26,9 @@
 
     export default {
         name: "index",
+        head: {
+            title: 'Projects - Peter Ma Website'
+        },
         components: {ProjectCard},
         data() {
             return {

@@ -50,6 +50,9 @@
 
     export default {
         name: "RegisterPage",
+        head: {
+            title: 'Register - Peter Ma Website'
+        },
         data() {
             return {
                 userData: {

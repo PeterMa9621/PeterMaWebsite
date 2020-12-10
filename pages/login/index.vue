@@ -51,6 +51,9 @@
 
     export default {
         name: "LoginPage",
+        head: {
+            title: 'Login - Peter Ma Website'
+        },
         data() {
             return {
                 username: '',

@@ -34,7 +34,10 @@
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        head: {
+            title: 'About me - Peter Ma Website'
+        },
     }
 </script>
 

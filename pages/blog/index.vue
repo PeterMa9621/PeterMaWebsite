@@ -26,6 +26,9 @@
 
     export default {
         name: "index",
+        head: {
+            title: 'Blog - Peter Ma Website'
+        },
         components: {BlogCard},
         data() {
             return {

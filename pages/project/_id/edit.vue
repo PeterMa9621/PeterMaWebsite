@@ -18,6 +18,9 @@
 
     export default {
         name: "edit",
+        head: {
+            title: 'Edit project - Peter Ma Website'
+        },
         components: {ProjectEditor},
         data() {
             return {

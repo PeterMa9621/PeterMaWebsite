@@ -14,6 +14,9 @@
     import BlogEditor from "../../components/blog/BlogEditor";
     export default {
         name: "create",
+        head: {
+            title: 'Create a blog - Peter Ma Website'
+        },
         middleware: 'authMiddleware',
         components: {
             BlogEditor,

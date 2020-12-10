@@ -42,6 +42,9 @@
 
     export default {
         name: "index",
+        head: {
+            title: 'Blog detail - Peter Ma Website'
+        },
         components: {VueMarkdown},
         data() {
             return {

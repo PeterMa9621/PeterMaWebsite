@@ -19,6 +19,9 @@
     import ImageSlider from "../../components/ImageSlider";
     export default {
         name: "index",
+        head: {
+            title: 'New Things - Peter Ma Website'
+        },
         components: {ImageSlider},
         data() {
             return {

@@ -15,6 +15,9 @@
     import moment from "moment";
     export default {
         name: "edit",
+        head: {
+            title: 'Edit blog - Peter Ma Website'
+        },
         components: {BlogEditor},
         data() {
             return {

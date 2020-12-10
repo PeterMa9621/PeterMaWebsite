@@ -58,6 +58,9 @@
 
     export default {
         name: "index",
+        head: {
+            title: 'Project detail - Peter Ma Website'
+        },
         components: {MyMarkDown},
         data() {
             return {
