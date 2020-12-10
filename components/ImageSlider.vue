@@ -47,7 +47,10 @@
         },
         methods: {
             showNextSlide(previous=false) {
-                this.currentIndex = (this.currentIndex + (previous?-1:1))%this.images.length;
+                let index = this.currentIndex + (previous?-1:1);
+                if(index < 0)
+                    index = this.images.length-1;
+                this.currentIndex = index%this.images.length;
             }
         }
     }

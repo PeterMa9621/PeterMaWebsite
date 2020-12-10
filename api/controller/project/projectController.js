@@ -3,7 +3,7 @@ import FileUtility from "../../../common/utility/FileUtility";
 const Project = require('../../model/project/projectModel');
 
 exports.projectGetAllController = (req, res) => {
-    Project.find({isRemoved: false}).then(response => {
+    Project.find({isRemoved: false}).sort({createdDate: -1}).then(response => {
         res.status(200).send(response);
     }).catch(reason => {
         res.status(400).send({msg: reason});

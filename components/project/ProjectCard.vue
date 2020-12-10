@@ -2,21 +2,23 @@
     <div class="card project-card" @click="openDetail">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4 pl-0 pr-0" style="height: 160px">
+                <div class="col-md-4 d-md-block d-sm-none pl-0 pr-0" style="height: 160px">
                     <img :src="project.coverImage?project.coverImage['url']:blankImage" alt="" class="project-cover-image">
                 </div>
-                <div class="col-8">
+                <div class="col-md-8 col-sm-12">
                     <div class="card-body pt-0 pb-0">
                         <h3 class="card-title">
                             {{ project.title }}
                         </h3>
                         <div class="d-flex" v-html="project.summary"></div>
-                        <div class="form-inline">
-                            <h4 v-for="(tag, index) in project.tags" :key="index" class="mr-1">
-                                <b-badge variant="primary">
-                                    {{tag}}
-                                </b-badge>
-                            </h4>
+                        <div class="badge-list">
+                            <div class="form-inline">
+                                <h4 v-for="(tag, index) in project.tags" :key="index" class="mr-1">
+                                    <b-badge variant="primary">
+                                        {{tag}}
+                                    </b-badge>
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,5 +66,25 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
+    }
+
+    .badge-list {
+        display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+        .badge-list {
+            display: none !important;
+        }
+
+    }
+
+    @media screen and (max-width: 576px) {
+        .d-sm-none {
+            display: none !important;
+        }
+        h3 {
+            font-size: 20px;
+        }
     }
 </style>
