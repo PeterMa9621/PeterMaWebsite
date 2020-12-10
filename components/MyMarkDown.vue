@@ -21,8 +21,9 @@
             }
         },
         mounted() {
-            this.translatedSource = ContentTranslator.translate(this.source);
-            this.images = ContentTranslator.getSavedParams('slider-item');
+            let translator = new ContentTranslator(this.source);
+            this.translatedSource = translator.translate();
+            this.images = translator.getSavedParams('slider-item');
         }
     }
 </script>

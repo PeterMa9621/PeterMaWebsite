@@ -1,51 +1,55 @@
-export default class ContentTranslator {
-    static savedParams = {};
-    static templates = {
-        'card-group': {
-            params: [],
-            html: '<div class="card-group">'
-        },
-        '/card-group': {
-            params: [],
-            html: '</div>'
-        },
-        'card-deck': {
-            params: [],
-            html: '<div class="card-deck">'
-        },
-        '/card-deck': {
-            params: [],
-            html: '</div>'
-        },
-        'card': {
-            params: ['src', 'title', 'content'],
-            html: `<div class="card">
+let templates = {
+    'card-group': {
+        params: [],
+        html: '<div class="card-group">'
+    },
+    '/card-group': {
+        params: [],
+        html: '</div>'
+    },
+    'card-deck': {
+        params: [],
+        html: '<div class="card-deck">'
+    },
+    '/card-deck': {
+        params: [],
+        html: '</div>'
+    },
+    'card': {
+        params: ['src', 'title', 'content'],
+        html: `<div class="card">
                     <img class="card-img-top" src="$src" alt="Card image cap">
                     <div class="card-body text-dark">
                         <h5 class="card-title">$title</h5>
                         <p class="card-text">$content</p>
                     </div>
                 </div>`
-        },
-        'slider': {
-            html: ''
-        },
-        'slider-item': {
-            saveParams: true,
-            params: ['src', 'title', 'content'],
-            html: ''
-        },
-        '/slider': {
-            html: ''
-        }
-    };
+    },
+    'slider': {
+        html: ''
+    },
+    'slider-item': {
+        saveParams: true,
+        params: ['src', 'title', 'content'],
+        html: ''
+    },
+    '/slider': {
+        html: ''
+    }
+};
 
-    static translate(content) {
-        let translatedContent = content;
-        for(let keyword in this.templates) {
-            let html = this.templates[keyword]['html'];
-            let params = this.templates[keyword]['params'];
-            let shouldSaveParams = this.templates[keyword]['saveParams'];
+export default class ContentTranslator {
+    constructor(content) {
+        this.content = content;
+        this.savedParams = {};
+    }
+
+    translate() {
+        let translatedContent = this.content;
+        for(let keyword in templates) {
+            let html = templates[keyword]['html'];
+            let params = templates[keyword]['params'];
+            let shouldSaveParams = templates[keyword]['saveParams'];
             if(shouldSaveParams) {
                 if(!(keyword in this.savedParams)) {
                     this.savedParams[keyword] = [];
@@ -58,7 +62,7 @@ export default class ContentTranslator {
                 if(contents === null)
                     continue;
                 for(let content of contents) {
-                    html = this.templates[keyword]['html'];
+                    html = templates[keyword]['html'];
                     let paramDict = this.getParams(params, content);
                     if(shouldSaveParams)
                         this.savedParams[keyword].push(paramDict);
@@ -77,7 +81,7 @@ export default class ContentTranslator {
         return translatedContent;
     }
 
-    static getParams(paramNames, template) {
+    getParams(paramNames, template) {
         let params = {};
         let pattern;
         for(let paramName of paramNames) {
@@ -92,7 +96,7 @@ export default class ContentTranslator {
         return params;
     }
 
-    static getSavedParams(keyword) {
+    getSavedParams(keyword) {
         return this.savedParams[keyword];
     }
 }
