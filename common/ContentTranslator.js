@@ -1,4 +1,5 @@
 export default class ContentTranslator {
+    static savedParams = {};
     static templates = {
         'card-group': {
             params: [],
@@ -25,6 +26,17 @@ export default class ContentTranslator {
                         <p class="card-text">$content</p>
                     </div>
                 </div>`
+        },
+        'slider': {
+            html: ''
+        },
+        'slider-item': {
+            saveParams: true,
+            params: ['src', 'title', 'content'],
+            html: ''
+        },
+        '/slider': {
+            html: ''
         }
     };
 
@@ -33,7 +45,14 @@ export default class ContentTranslator {
         for(let keyword in this.templates) {
             let html = this.templates[keyword]['html'];
             let params = this.templates[keyword]['params'];
-            if(params.length > 0) {
+            let shouldSaveParams = this.templates[keyword]['saveParams'];
+            if(shouldSaveParams) {
+                if(!(keyword in this.savedParams)) {
+                    this.savedParams[keyword] = [];
+                }
+            }
+
+            if(params && params.length > 0) {
                 let pattern = new RegExp('\\[' + keyword + '.*\\]', 'g');
                 let contents = translatedContent.match(pattern);
                 if(contents === null)
@@ -41,6 +60,8 @@ export default class ContentTranslator {
                 for(let content of contents) {
                     html = this.templates[keyword]['html'];
                     let paramDict = this.getParams(params, content);
+                    if(shouldSaveParams)
+                        this.savedParams[keyword].push(paramDict);
 
                     for(let paramName in paramDict) {
                         html = html.replace('$' + paramName, paramDict[paramName]);
@@ -69,5 +90,9 @@ export default class ContentTranslator {
             params[paramName] = result[1];
         }
         return params;
+    }
+
+    static getSavedParams(keyword) {
+        return this.savedParams[keyword];
     }
 }
