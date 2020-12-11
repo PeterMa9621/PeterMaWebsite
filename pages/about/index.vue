@@ -28,6 +28,12 @@
                 skill to create something to change some behaviors in the game. I created lots of Plugins for Minecraft,
                 and I also ran my own servers with my creative gaming content.
             </div>
+            <br>
+            <br>
+            <br>
+            <div class="text-center">
+                <h4>Contact me by email: majingyuan2000@gmail.com</h4>
+            </div>
         </div>
     </div>
 </template>
