@@ -42,9 +42,9 @@
                                     <div class="mt-3 text-left" style="font-size: 20px">
                                         <ul class="mt-3">
                                             <li>Language: Java, PHP, Python, JavaScript, HTML, CSS, C# and C</li>
-                                            <li>Framework: Vue.js, Nuxt.js, Node.js Express, Laravel, Zend, Django, Django Rest Framework and ASP .Net Core</li>
+                                            <li>Framework: Vue.js, Nuxt.js, React.js, Next.js, Node.js Express, Laravel, Zend, Django, Django Rest Framework and ASP .Net Core</li>
                                             <li>Database: MySQL, SQLite, MongoDB, Elasticsearch and Firebase DB</li>
-                                            <li>Development Tool: Android Studio, GitHub, GitLab, Bitbucket, Postman, Docker and Azure DevOps</li>
+                                            <li>Development Tool: VS Code, Android Studio, GitHub, GitLab, Bitbucket, Postman, Docker and Azure DevOps</li>
                                             <li>Technology: WebSocket and CI/CD</li>
                                         </ul>
                                     </div>
@@ -97,7 +97,13 @@
                                     <div class="mt-3 text-left" style="font-size: 20px">
                                         <ul class="mt-3">
                                             <li>
-                                                Full-Stack Web Developer - (May. 2019 – Aug. 2019, July. 2020 – Present)
+                                                Full-Stack Web Developer - (Feb. 2021 – Present)
+                                                <ul>
+                                                    <li>PDERAS</li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                Full-Stack Web Developer - (May. 2019 – Aug. 2019, July. 2020 – Feb. 2021)
                                                 <ul>
                                                     <li>UW Insure</li>
                                                 </ul>
